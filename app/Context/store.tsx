@@ -1,7 +1,7 @@
 
 'use client';
 
-import { createContext, useContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, useContext, Dispatch, SetStateAction, useState, ReactNode } from "react";
 
 type DataType = {
     firstName: string
@@ -21,7 +21,7 @@ const GlobalContext = createContext<ContextProps>({
     setData: (): DataType[] => [] 
 })
 
-export const GlobalContextProvider = ({ children }) => {
+export const GlobalContextProvider = ({ children }: { children: ReactNode }) => {
     const [userId, setUserId] = useState('');
     const [data, setData] = useState<[] | DataType[]>([]);
     
